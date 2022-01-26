@@ -10,12 +10,12 @@ const Navigation = (props) => {
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='reponsive-navbar-nav' >
             <Nav>
-              <Nav.Link onClick={() => {console.log('YEAH')}}>Hic Svnt Dracones</Nav.Link>
-              <Nav.Link onClick={() => {console.log('YEAH')}}>Location</Nav.Link>
-              <NavDropdown title="What's nearby?">
-                <NavDropdown.Item onClick={() => {console.log('YEAH')}}>Creatures</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => {console.log('YEAH')}}>Spirits</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => {console.log('YEAH')}}>Safe Havens</NavDropdown.Item>
+              <Nav.Link onClick={() => {props.newPage('main')}}>Hic Svnt Dracones</Nav.Link>
+              <Nav.Link onClick={() => {props.newPage('checkdestination')}}>Check Destination</Nav.Link>
+              <NavDropdown title="Resources">
+                <NavDropdown.Item onClick={() => {props.newPage('creaturelookup')}}>What did I see?</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => {props.newPage('reportactivity')}}>I want to report what I saw!</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => {props.newPage('safehavens')}}>List of Safe Havens</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack --mode development --watch",
+    "react-dev": "webpack --watch",
     "server-dev": "npx nodemon server/index.js"
   },
   "author": "",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.12",
+    "@babel/plugin-transform-runtime": "^7.16.10",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "nodemon": "^2.0.15",

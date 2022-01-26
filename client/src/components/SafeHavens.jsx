@@ -2,7 +2,7 @@ import React from 'react';
 
 const SafeHavens = (props) => {
 
-  return(
+  return( //displays churches and law enforcement nearby
     <div>SafeHavens</div>
   )
 }
