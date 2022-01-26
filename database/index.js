@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/monsters');
 
 let reportSchema = mongoose.Schema({
-  id: {type: Number, unique: true},
   city: String,
   country: String,
   description: String,

@@ -11,7 +11,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 'main'
+      page: 'main',
+      longitude: null,
+      latitude: null,
+      reports: [],
+      safehavens: []
     }
     this.renderPage = this.renderPage.bind(this);
     this.newPage = this.newPage.bind(this);
@@ -36,6 +40,14 @@ class App extends React.Component {
     this.setState({
       page: param
     })
+  }
+
+  retrieveReports(coordinates) {
+
+  }
+
+  postReport(coordinates) {
+
   }
 
   render () {
