@@ -87,7 +87,7 @@ class App extends React.Component {
   render () {
     return (<div className="App-Container">
       <Navigation newPage={this.newPage} />
-      <div onClick={() => {this.retrieveReports(this.state.longitude, this.state.latitude)}}>TEST</div>
+      {/* <div onClick={() => {this.retrieveReports(this.state.longitude, this.state.latitude)}}>TEST</div> */}
       {this.renderPage()}
     </div>)
   }
