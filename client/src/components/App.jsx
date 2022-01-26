@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { maps_api_key } from '../../config.js'
 import Navigation from './Navigation.jsx';
 import Main from './Main.jsx';
 import CheckDestination from './CheckDestination.jsx';
@@ -19,6 +20,13 @@ class App extends React.Component {
     }
     this.renderPage = this.renderPage.bind(this);
     this.newPage = this.newPage.bind(this);
+    this.getCoordinates = this.getCoordinates.bind(this);
+    this.retrieveReports = this.retrieveReports.bind(this);
+  }
+  componentDidMount() {
+    if(this.state.longitude === null && this.state.latitude === null){
+      this.getCoordinates();
+    }
   }
 
   renderPage() {
@@ -26,7 +34,7 @@ class App extends React.Component {
       case 'main':
         return (<Main />);
       case 'checkdestination':
-        return (<CheckDestination />);
+        return (<CheckDestination retrieveReports={this.retrieveReports} reports={this.state.reports} longitude={this.state.longitude} latitude={this.state.latitude} />);
       case 'creaturelookup':
         return (<CreatureLookup />);
       case 'reportactivity':
@@ -42,17 +50,44 @@ class App extends React.Component {
     })
   }
 
-  retrieveReports(coordinates) {
-
+  retrieveReports(longitude, latitude) {
+    axios.get('http://localhost:3000/sreport', {
+      params: {
+        longitude: longitude,
+        latitude: latitude
+      }
+    })
+    .then((response) => {
+      this.setState({
+        reports: response.data
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   postReport(coordinates) {
 
   }
 
+  getCoordinates() {
+    axios.post(`https://www.googleapis.com/geolocation/v1/geolocate?key=${maps_api_key}`)
+    .then((response) => {
+      this.setState({
+        longitude: response.data.location.lng,
+        latitude: response.data.location.lat
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+
   render () {
     return (<div className="App-Container">
       <Navigation newPage={this.newPage} />
+      <div onClick={() => {this.retrieveReports(this.state.longitude, this.state.latitude)}}>TEST</div>
       {this.renderPage()}
     </div>)
   }

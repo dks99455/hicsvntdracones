@@ -2,12 +2,13 @@ const { findReports, makeReport } = require('./model.js');
 
 module.exports = {
   getReports: (req, res) => {
-    findReports(req.body.longitude, req.body.latitude)
+    const longitude = parseFloat(req.query.longitude);
+    const latitude = parseFloat(req.query.latitude);
+    findReports(longitude, latitude)
     .then((data) => {
-      console.log(data);
       res.send(data);
     })
-    .catch( err => res.sendStatus(500));
+    .catch( err => console.log(err));
   },
 
   postReport: (req, res) => {
