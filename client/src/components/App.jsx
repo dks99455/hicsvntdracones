@@ -32,9 +32,9 @@ class App extends React.Component {
   renderPage() {
     switch (this.state.page) {
       case 'main':
-        return (<Main />);
+        return (<Main newPage={this.newPage}/>);
       case 'checkdestination':
-        return (<CheckDestination retrieveReports={this.retrieveReports} reports={this.state.reports} longitude={this.state.longitude} latitude={this.state.latitude} />);
+        return (<CheckDestination reports={this.state.reports} longitude={this.state.longitude} latitude={this.state.latitude} />);
       case 'creaturelookup':
         return (<CreatureLookup />);
       case 'reportactivity':
@@ -77,6 +77,8 @@ class App extends React.Component {
       this.setState({
         longitude: response.data.location.lng,
         latitude: response.data.location.lat
+      }, () => {
+        this.retrieveReports(this.state.longitude, this.state.latitude);
       })
     })
     .catch((err) => {

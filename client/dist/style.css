@@ -1,3 +1,52 @@
 body {
   padding-top: 65px;
+  background-color: black;
+  background-image: url("/images/4233852.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+.App-Container {
+  padding: 1% 1%;
+  background: rgba(10, 10, 10, .7);
+}
+
+.mainpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+}
+
+.mainpage:hover {
+  transform: scale(5);
+  transition: 0.5s ease;
+  cursor: pointer;
+  color: red;
+}
+
+.r_title {
+  padding-top: 0.5%;
+  color: white;
+  font-size: .875em;
+}
+.r_site {
+  color: orange;
+}
+
+.r_location {
+  color: bisque;
+}
+
+.r_description {
+  color: gray;
+  padding-bottom: 1%;
+}
+
+#map {
+  height: 100%;
 }
