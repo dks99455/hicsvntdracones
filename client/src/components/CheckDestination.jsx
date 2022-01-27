@@ -28,9 +28,11 @@ const CheckDestination = (props) => {
           })
           .catch(err => console.log(err));
         } else if (longi !== "" && lati !== "") {
-
+          props.setCoordinates(longi, lati);
+        } else if (field === "" && longi === "" && lati === "") {
+          alert("No location provided");
         } else if (longi === "" || lati === "") {
-
+          alert("Please fill in the zip code OR provide both coordinates");
         }
       }}>
         <input id="enteraddress" type="text" placeholder="Enter ZIP Code" onChange={(e) => {
