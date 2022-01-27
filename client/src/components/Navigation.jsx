@@ -11,7 +11,6 @@ const Navigation = (props) => {
           <Navbar.Collapse id='reponsive-navbar-nav' >
             <Nav>
               <Nav.Link onClick={() => {
-                props.getCoordinates();
                 props.newPage('main')
               }}>Hic Svnt Dracones</Nav.Link>
               <Nav.Link onClick={() => {props.newPage('checkdestination')}}>Check Destination</Nav.Link>

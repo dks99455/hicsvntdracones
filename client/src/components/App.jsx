@@ -33,7 +33,7 @@ class App extends React.Component {
   renderPage() {
     switch (this.state.page) {
       case 'main':
-        return (<Main newPage={this.newPage}/>);
+        return (<Main getCoordinates={this.getCoordinates} newPage={this.newPage}/>);
       case 'checkdestination':
         return (<CheckDestination setCoordinates={this.setCoordinates} reports={this.state.reports} longitude={this.state.longitude} latitude={this.state.latitude} />);
       case 'creaturelookup':
@@ -98,7 +98,7 @@ class App extends React.Component {
 
   render () {
     return (<div className="App-Container">
-      <Navigation getCoordinates={this.getCoordinates} newPage={this.newPage} />
+      <Navigation newPage={this.newPage} />
       {/* <div onClick={() => {this.retrieveReports(this.state.longitude, this.state.latitude)}}>TEST</div> */}
       {this.renderPage()}
     </div>)
