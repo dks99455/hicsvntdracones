@@ -63,9 +63,19 @@ body {
   color: red;
 }
 
-.enteraddress {
+#enteraddress {
   width: 300px;
   margin-bottom: 2%;
+}
+
+#reportlandmark {
+  width: 50vw;
+}
+
+#reportdescription {
+  height: 50vh;
+  width: 50vw;
+  resize: none;
 }
 
 #map {

@@ -39,7 +39,7 @@ class App extends React.Component {
       case 'creaturelookup':
         return (<CreatureLookup />);
       case 'reportactivity':
-        return (<ReportActivity />);
+        return (<ReportActivity newPage={this.newPage} />);
       case 'safehavens':
         return (<SafeHavens />);
     }

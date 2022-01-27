@@ -2,7 +2,7 @@ const { Report } = require('../database');
 
 module.exports = {
   findReports: (longitude, latitude) => { //get nearest reports for coordinates
-    const distance = 0.5;
+    const distance = 0.25;
     const minLon = longitude - distance;
     const maxLon = longitude + distance;
     const minLat = latitude - distance;
@@ -15,7 +15,19 @@ module.exports = {
     }).exec();
   },
 
-  makeReport: (longitude, latitude, reportdata) => { //submit a report with coordinates
-
+  makeReport: (reportdata) => { //submit a report with coordinates
+    const newReport = new Report({
+      city: reportdata.city,
+      country: reportdata.country,
+      description: reportdata.description,
+      location: reportdata.location,
+      state: reportdata.state,
+      state_abbrev: reportdata.state_abbrev,
+      longitude: reportdata.longitude,
+      latitude: reportdata.latitude,
+      city_longitude: null,
+      city_latitude: null
+    })
+    newReport.save();
   }
 }

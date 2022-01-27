@@ -12,11 +12,7 @@ module.exports = {
   },
 
   postReport: (req, res) => {
-    res.send('post working')
-    // makeReport()
-    // .then((data) => {
-    //   res.send(data)
-    // })
-    // .catch( err => res.sendStatus(500));
+    let body = req.body;
+    makeReport(body);
   }
 }
