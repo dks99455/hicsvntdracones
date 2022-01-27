@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import ReportModal from './ReportModal.jsx';
 
 const CheckDestination = (props) => {
 
   const [reports, setReports] = useState([]);
+  const [field, setField] = useState('');
+
 
   useEffect(() => {
     setReports(props.reports);
@@ -11,19 +14,14 @@ const CheckDestination = (props) => {
 
   return( //Checks for supernatural reports on the path to location
     <div>
-      <div id="map"></div>
-      {props.reports.map((report, index) => {
-        return (
-          <div key={index}>
-            <div className="r_title">Site:</div>
-            <div className="r_site">{report.location}</div>
-            <div className="r_title">Location:</div>
-            <div className="r_location">{report.city + ', ' + report.state_abbrev + ' ' + report.country}</div>
-            <div className="r_title">Report:</div>
-            <div className="r_description">{report.description}</div>
-          </div>
-        )
-      })}
+      <form onSubmit={(e) => {
+        e.preventDefault();
+      }}>
+        <input className="enteraddress" type="text" placeholder="Enter an address or coordinates" onChange={(e) => {setField(e.target.value)}}></input>
+        <button type="submit">SUBMIT</button>
+      </form>
+      <div className='r_title'>Shadows found near coordinates: Longitude:{props.longitude} , Latitude:{props.latitude}</div>
+      {props.reports.map((report, index) => (<ReportModal report={report} key={index} index={index} />))}
     </div>
   )
 }

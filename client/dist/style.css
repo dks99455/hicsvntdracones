@@ -23,19 +23,30 @@ body {
 }
 
 .mainpage:hover {
-  transform: scale(5);
+  transform: scale(3);
   transition: 0.5s ease;
   cursor: pointer;
   color: red;
 }
 
+.r_report {
+  padding: 2%
+}
+
+.r_report:hover {
+  transform: scale(1.01);
+  transition: 0.5s ease;
+  cursor: pointer;
+  opacity: .8;
+}
+
 .r_title {
   padding-top: 0.5%;
-  color: white;
+  color: orange;
   font-size: .875em;
 }
 .r_site {
-  color: orange;
+  color: bisque;
 }
 
 .r_location {
@@ -43,8 +54,18 @@ body {
 }
 
 .r_description {
-  color: gray;
+  color: bisque;
   padding-bottom: 1%;
+}
+
+.reportModal .modal-content {
+  background-color: darkslategray;
+  color: red;
+}
+
+.enteraddress {
+  width: 300px;
+  margin-bottom: 2%;
 }
 
 #map {
