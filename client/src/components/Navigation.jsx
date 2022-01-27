@@ -10,7 +10,10 @@ const Navigation = (props) => {
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='reponsive-navbar-nav' >
             <Nav>
-              <Nav.Link onClick={() => {props.newPage('main')}}>Hic Svnt Dracones</Nav.Link>
+              <Nav.Link onClick={() => {
+                props.getCoordinates();
+                props.newPage('main')
+              }}>Hic Svnt Dracones</Nav.Link>
               <Nav.Link onClick={() => {props.newPage('checkdestination')}}>Check Destination</Nav.Link>
               <NavDropdown title="Resources">
                 <NavDropdown.Item onClick={() => {props.newPage('creaturelookup')}}>What did I see?</NavDropdown.Item>
