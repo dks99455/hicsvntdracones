@@ -22,6 +22,7 @@ class App extends React.Component {
     this.newPage = this.newPage.bind(this);
     this.getCoordinates = this.getCoordinates.bind(this);
     this.retrieveReports = this.retrieveReports.bind(this);
+    this.setCoordinates = this.setCoordinates.bind(this);
   }
   componentDidMount() {
     if(this.state.longitude === null && this.state.latitude === null){
@@ -34,7 +35,7 @@ class App extends React.Component {
       case 'main':
         return (<Main newPage={this.newPage}/>);
       case 'checkdestination':
-        return (<CheckDestination reports={this.state.reports} longitude={this.state.longitude} latitude={this.state.latitude} />);
+        return (<CheckDestination setCoordinates={this.setCoordinates} reports={this.state.reports} longitude={this.state.longitude} latitude={this.state.latitude} />);
       case 'creaturelookup':
         return (<CreatureLookup />);
       case 'reportactivity':
@@ -83,6 +84,15 @@ class App extends React.Component {
     })
     .catch((err) => {
       console.log(err);
+    })
+  }
+
+  setCoordinates(lng, lat) {
+    this.setState({
+      longitude: lng,
+      latitude: lat
+    }, () => {
+      this.retrieveReports(this.state.longitude, this.state.latitude);
     })
   }
 

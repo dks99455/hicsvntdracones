@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import axios from 'axios';
 import ReportModal from './ReportModal.jsx';
+import { maps_api_key } from '../../config.js';
 
 const CheckDestination = (props) => {
 
   const [reports, setReports] = useState([]);
   const [field, setField] = useState('');
+  const [longi, setLongi] = useState('');
+  const [lati, setLati] = useState('');
 
 
   useEffect(() => {
@@ -16,8 +20,38 @@ const CheckDestination = (props) => {
     <div>
       <form onSubmit={(e) => {
         e.preventDefault();
+        if (field !== "") {
+          axios.post(`https://maps.googleapis.com/maps/api/geocode/json?address=${field}&key=${maps_api_key}`)
+          .then((response) => {
+            let coordinates = response.data.results[0].geometry.location;
+            props.setCoordinates(coordinates.lng, coordinates.lat);
+          })
+          .catch(err => console.log(err));
+        } else if (longi !== "" && lati !== "") {
+
+        } else if (longi === "" || lati === "") {
+
+        }
       }}>
-        <input className="enteraddress" type="text" placeholder="Enter an address or coordinates" onChange={(e) => {setField(e.target.value)}}></input>
+        <input id="enteraddress" type="text" placeholder="Enter ZIP Code" onChange={(e) => {
+          setField(e.target.value);
+          setLongi('');
+          setLati('');
+          document.getElementById('enterlongi').value = '';
+          document.getElementById('enterlati').value = '';
+        }}></input>
+        <label>. or Coordinates: .
+          <input id="enterlongi" type="text" placeholder="Longitude" onChange={(e) => {
+            setLongi(e.target.value);
+            setField('');
+            document.getElementById('enteraddress').value = '';
+          }}></input>.
+          <input id="enterlati" type="text" placeholder="Latitude" onChange={(e) => {
+            setLati(e.target.value);
+            setField('');
+            document.getElementById('enteraddress').value = '';
+          }}></input>.
+        </label>
         <button type="submit">SUBMIT</button>
       </form>
       <div className='r_title'>Shadows found near coordinates: Longitude:{props.longitude} , Latitude:{props.latitude}</div>
