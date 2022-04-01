@@ -41,7 +41,7 @@ class App extends React.Component {
       case 'reportactivity':
         return (<ReportActivity newPage={this.newPage} />);
       case 'safehavens':
-        return (<SafeHavens />);
+        return (<SafeHavens coordinates={{latitude: this.state.latitude, longitude: this.state.longitude}} setCoordinates={this.setCoordinates}/>);
     }
   }
 

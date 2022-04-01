@@ -42,17 +42,17 @@ const CheckDestination = (props) => {
           document.getElementById('enterlongi').value = '';
           document.getElementById('enterlati').value = '';
         }}></input>
-        <label>. or Coordinates: .
+        <label>: OR :
           <input id="enterlongi" type="text" placeholder="Longitude" onChange={(e) => {
             setLongi(e.target.value);
             setField('');
             document.getElementById('enteraddress').value = '';
-          }}></input>.
+          }}></input>
           <input id="enterlati" type="text" placeholder="Latitude" onChange={(e) => {
             setLati(e.target.value);
             setField('');
             document.getElementById('enteraddress').value = '';
-          }}></input>.
+          }}></input>
         </label>
         <button type="submit">SUBMIT</button>
       </form>
