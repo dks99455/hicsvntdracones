@@ -29,23 +29,23 @@ const SafeHavens = (props) => {
           alert("Please fill in the zip code OR provide both coordinates");
         }
       }}>
-        <input id="enteraddress" type="text" placeholder="Enter ZIP Code" onChange={(e) => {
+        <input id="mapAddress" type="text" placeholder="Enter ZIP Code" onChange={(e) => {
           setField(e.target.value);
           setLongi('');
           setLati('');
-          document.getElementById('enterlongi').value = '';
-          document.getElementById('enterlati').value = '';
+          document.getElementById('mapLongi').value = '';
+          document.getElementById('mapLati').value = '';
         }}></input>
         <label>: OR :
-          <input id="enterlongi" type="text" placeholder="Longitude" onChange={(e) => {
+          <input id="mapLongi" type="text" placeholder="Longitude" onChange={(e) => {
             setLongi(e.target.value);
             setField('');
-            document.getElementById('enteraddress').value = '';
+            document.getElementById('mapAddress').value = '';
           }}></input>
-          <input id="enterlati" type="text" placeholder="Latitude" onChange={(e) => {
+          <input id="mapLati" type="text" placeholder="Latitude" onChange={(e) => {
             setLati(e.target.value);
             setField('');
-            document.getElementById('enteraddress').value = '';
+            document.getElementById('mapAddress').value = '';
           }}></input>
         </label>
         <button type="submit">SUBMIT</button>

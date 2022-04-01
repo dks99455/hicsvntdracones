@@ -30,7 +30,7 @@ const ReportActivity = (props) => {
             .catch(err => console.log(err));
             setLandmark('');
             setDescribe('');
-            alert('Thank you for leaving a warning.');
+            alert('Thank you. Your message has been posted to aid other travelers.');
             props.newPage('main');
           })
         })
