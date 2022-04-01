@@ -15,7 +15,6 @@ const Navigation = (props) => {
               }}>Hic Svnt Dracones</Nav.Link>
               <Nav.Link onClick={() => {props.newPage('checkdestination')}}>Check Destination</Nav.Link>
               <NavDropdown title="Resources">
-                <NavDropdown.Item onClick={() => {props.newPage('creaturelookup')}}>What did I see?</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => {props.newPage('reportactivity')}}>I want to report what I saw!</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => {props.newPage('safehavens')}}>Safe Havens</NavDropdown.Item>
               </NavDropdown>

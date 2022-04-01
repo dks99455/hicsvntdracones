@@ -4,7 +4,6 @@ import { maps_api_key } from '../../config.js'
 import Navigation from './Navigation.jsx';
 import Main from './Main.jsx';
 import CheckDestination from './CheckDestination.jsx';
-import CreatureLookup from './CreatureLookup.jsx';
 import ReportActivity from './ReportActivity.jsx';
 import SafeHavens from './SafeHavens.jsx';
 
@@ -36,8 +35,6 @@ class App extends React.Component {
         return (<Main getCoordinates={this.getCoordinates} newPage={this.newPage}/>);
       case 'checkdestination':
         return (<CheckDestination setCoordinates={this.setCoordinates} reports={this.state.reports} longitude={this.state.longitude} latitude={this.state.latitude} />);
-      case 'creaturelookup':
-        return (<CreatureLookup />);
       case 'reportactivity':
         return (<ReportActivity newPage={this.newPage} />);
       case 'safehavens':

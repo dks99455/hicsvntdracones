@@ -2,7 +2,7 @@ import React from 'react';
 
 const Main = (props) => {
 
-  return( //main page shows WELCOME. with button to find supernatural info at your current location
+  return(
     <div className="mainpage" onClick={() => {
       props.getCoordinates();
       props.newPage('checkdestination');

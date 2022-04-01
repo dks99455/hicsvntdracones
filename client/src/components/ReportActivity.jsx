@@ -41,7 +41,7 @@ const ReportActivity = (props) => {
       }}>
         <div>
           <div>Name a Nearby Landmark:</div>
-          <input id="reportlandmark" type="text" placeholder="Name of landmark or location of sighting" onChange={(e) => {
+          <input id="reportlandmark" type="text" placeholder="Name of nearest landmark or point of interest" onChange={(e) => {
             setLandmark(e.target.value);
           }}></input>
         </div>
@@ -53,6 +53,21 @@ const ReportActivity = (props) => {
         </div>
         <button id="makeReport" type="submit">SUBMIT</button>
       </form>
+      <div>
+      <div style={{paddingTop: '2%'}}>Creature Lookup Resources</div>
+      <div>
+        <a href="https://en.wikipedia.org/wiki/List_of_legendary_creatures_by_type" target='_blank'>Wikipedia: List of Legendary Creatures</a>
+      </div>
+      <div>
+        <a href="https://en.wikipedia.org/wiki/List_of_cryptids" target='_blank'>Wikipedia: List of Cryptids</a>
+      </div>
+      <div>
+        <a href="https://cryptidarchives.fandom.com/wiki/Encyclopedia_of_Cryptozoology" target='_blank'>Cryptid Archives: Encyclopedia of Cryptozoology</a>
+      </div>
+      <div>
+        <a href="https://monster.fandom.com/wiki/Monster_Wiki" target='_blank'>Monster Wiki</a>
+      </div>
+    </div>
     </div>
   )
 }
